@@ -1,3 +1,18 @@
+body{
+  ---color1: #2172b8;
+  ---color2: #18a39b;
+  ---color3: #82c545;
+  ---color4: #f8b739;
+  ---color5: #f06045;
+  ---color6: #ed2861;
+  ---color7: #c12680;
+  ---color8: #5d3191;
+
+  ---inner: 20px;
+  ---border: 6px;
+  ---spacing: 2px;
+}
+
 .App {
   text-align: center;
 }
@@ -34,5 +49,107 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.ice-cream-card{
+  font-size: 1rem;
+  background-color: white;
+  border: black solid 2px;
+  height: 200px;
+  width: 200px;
+  color: black;
+  margin: 5px;
+}
+
+.card{
+  font-size: 1rem;
+  background-color: white;
+  border: black solid 2px;
+  height: 200px;
+  width: 200px;
+  color: black;
+  margin: 5px;
+}
+
+.harry-potter-card{
+  font-size: 1rem;
+  background-color: white;
+  border: black solid 2px;
+  height: 400px;
+  width: 400px;
+  color: black;
+  margin: 5px;
+}
+
+.list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.loading-spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0d0e10;
+  width: 100%;
+  animation: hueChange 10s linear infinite;
+}
+
+@keyframes hueChange {
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
+  }
+  
+}
+
+.loader{
+  position: relative;
+  height: 50px;
+  width: 50px;
+}
+
+span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform: rotate(calc(18deg * var(--i)));
+}
+
+span::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: #18a39b;
+  box-shadow: 0 0 10px white,
+              0 0 20px white,
+              0 0 40px var(---color2),
+              0 0 60px var(---color2),
+              0 0 80px var(---color2),
+              0 0 100px var(---color2);
+  animation: shrink 2s linear infinite;
+  animation-delay: calc(0.1s * var(--i));
+  border-radius: 2px;
+}
+
+
+@keyframes shrink {
+  0% {
+    transform: scale(1);
+  }
+  80%, 100%{
+    transform: scale(0);
   }
 }
