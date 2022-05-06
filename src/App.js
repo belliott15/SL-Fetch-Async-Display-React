@@ -1,22 +1,26 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import { getIceCreams, getPokemon } from './services/fetch-utils';
+import IceCreamList from './IceCreamList';
+import PokemonList from './PokemonList';
 import './App.css';
 
 function App() {
+  const [iceCreams, setIceCreams] = useState([]);
+  const [pokemons, setPokemons] = useState([]);
+
+  useEffect(async () => {
+    const iceCreamsArray = await getIceCreams();
+    setIceCreams(iceCreamsArray);
+
+    const pokemonsArray = await getPokemon();
+    setPokemons(pokemonsArray);
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <IceCreamList iceCreams={iceCreams}/>
+        <PokemonList pokemons={pokemons} />
       </header>
     </div>
   );
