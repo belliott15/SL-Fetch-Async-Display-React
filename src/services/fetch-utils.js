@@ -15,3 +15,19 @@ export async function getPokemon(){
 
   return response.body;
 }
+
+export async function getCandies(){
+  const response = await client
+    .from('candies')
+    .select();
+
+  return response.body;
+}
+
+export async function getHarryPotterCharacters(){
+  const response = await client
+    .from('Harry_Potter_characters')
+    .select();
+
+  return response.body;
+}
