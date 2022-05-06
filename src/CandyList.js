@@ -3,7 +3,7 @@ import Candy from './candy';
 
 export default function CandyList({ candies }) {
   return (
-    <div>
+    <div className='list'>
       {candies.map((candy) => <Candy key={candy.id} candy={candy}/>)}
     </div>
   );
