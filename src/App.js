@@ -29,6 +29,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1>React Fetch and Display</h1>
         <IceCreamList iceCreams={iceCreams} />
         <PokemonList pokemons={pokemons} />
         <CandyList candies={candies} />
